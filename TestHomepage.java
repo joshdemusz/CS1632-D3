@@ -1,5 +1,7 @@
-/**
- * Created by joshdemusz on 2/27/17.
+/*
+    Josh Demusz
+    CS 1632 - Deliverable 3
+    3/13/17
  */
 
 import org.junit.Before;
@@ -8,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
+import java.util.logging.Level;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -20,6 +24,8 @@ public class TestHomepage
     @Before
     public void setUp() throws Exception
     {
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
         driver.get("https://cs1632ex.herokuapp.com");
     }
 

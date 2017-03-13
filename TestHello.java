@@ -4,12 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import java.util.logging.*;
 
 import static org.junit.Assert.fail;
 
-/**
- * Created by joshdemusz on 3/2/17.
+/*
+    Josh Demusz
+    CS 1632 - Deliverable 3
+    3/13/17
  */
+
 public class TestHello
 {
     static WebDriver driver = new HtmlUnitDriver();
@@ -18,6 +22,8 @@ public class TestHello
     @Before
     public void setUp() throws Exception
     {
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
         driver.get("https://cs1632ex.herokuapp.com");
     }
 

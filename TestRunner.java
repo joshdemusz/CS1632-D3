@@ -1,5 +1,7 @@
-/**
- * Created by joshdemusz on 2/27/17.
+/*
+    Josh Demusz
+    CS 1632 - Deliverable 3
+    3/13/17
  */
 
 import org.junit.runner.JUnitCore;

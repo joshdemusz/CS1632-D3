@@ -6,11 +6,16 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import java.util.logging.Level;
+
 import static org.junit.Assert.fail;
 
-/**
- * Created by joshdemusz on 3/2/17.
+/*
+    Josh Demusz
+    CS 1632 - Deliverable 3
+    3/13/17
  */
+
 public class TestFactorial
 {
     static WebDriver driver = new HtmlUnitDriver();
@@ -19,6 +24,8 @@ public class TestFactorial
     @Before
     public void setUp() throws Exception
     {
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
         driver.get("https://cs1632ex.herokuapp.com");
     }
 
@@ -123,6 +130,48 @@ public class TestFactorial
             driver.findElement(By.cssSelector("input[type='submit']")).click();
 
             driver.findElement(By.xpath("//*[text()[contains(.,'Factorial of 101 is 1!')]]"));
+        }
+        catch (NoSuchElementException nseex)
+        {
+            fail();
+        }
+    }
+
+    /*
+     This tests the input of a large integer into the Factorial function. This tests an unexpected
+        use case.
+      */
+    @Test
+    public void testIntegerInputLarge()
+    {
+        try
+        {
+            driver.findElement(By.linkText("Factorial")).click();
+            driver.findElement(By.name("value")).sendKeys("1000000");
+            driver.findElement(By.cssSelector("input[type='submit']")).click();
+
+            driver.findElement(By.xpath("//*[text()[contains(.,'Factorial of 1000000 is 1!')]]"));
+        }
+        catch (NoSuchElementException nseex)
+        {
+            fail();
+        }
+    }
+
+    /*
+     This tests the input of "nothing" into the Factorial function. This tests an unexpected
+        use case.
+      */
+    @Test
+    public void testBlankInput()
+    {
+        try
+        {
+            driver.findElement(By.linkText("Factorial")).click();
+            driver.findElement(By.name("value")).sendKeys("");
+            driver.findElement(By.cssSelector("input[type='submit']")).click();
+
+            driver.findElement(By.xpath("//*[text()[contains(.,'Factorial of is 1!')]]"));
         }
         catch (NoSuchElementException nseex)
         {

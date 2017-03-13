@@ -5,11 +5,16 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import java.util.logging.Level;
+
 import static org.junit.Assert.fail;
 
-/**
- * Created by joshdemusz on 3/2/17.
+/*
+    Josh Demusz
+    CS 1632 - Deliverable 3
+    3/13/17
  */
+
 public class TestFibonacci
 {
     static WebDriver driver = new HtmlUnitDriver();
@@ -18,6 +23,8 @@ public class TestFibonacci
     @Before
     public void setUp() throws Exception
     {
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.NoOpLog");
         driver.get("https://cs1632ex.herokuapp.com");
     }
 
@@ -108,7 +115,7 @@ public class TestFibonacci
             driver.findElement(By.name("value")).sendKeys("100");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
 
-            driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of 100 is 573147844013817084101!')]]"));
+            driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of 100 is 354224848179261915075!')]]"));
         }
         catch (NoSuchElementException nseex)
         {
@@ -122,6 +129,48 @@ public class TestFibonacci
             driver.findElement(By.cssSelector("input[type='submit']")).click();
 
             driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of 101 is 1!')]]"));
+        }
+        catch (NoSuchElementException nseex)
+        {
+            fail();
+        }
+    }
+
+    /*
+     This tests the input of a large integer into the Fibonacci function. This tests an unexpected
+        use case.
+      */
+    @Test
+    public void testIntegerInputLarge()
+    {
+        try
+        {
+            driver.findElement(By.linkText("Fibonacci")).click();
+            driver.findElement(By.name("value")).sendKeys("1000000");
+            driver.findElement(By.cssSelector("input[type='submit']")).click();
+
+            driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of 1000000 is 1!')]]"));
+        }
+        catch (NoSuchElementException nseex)
+        {
+            fail();
+        }
+    }
+
+    /*
+     This tests the input of "nothing" into the Factorial function. This tests an unexpected
+        use case.
+      */
+    @Test
+    public void testBlankInput()
+    {
+        try
+        {
+            driver.findElement(By.linkText("Fibonacci")).click();
+            driver.findElement(By.name("value")).sendKeys("");
+            driver.findElement(By.cssSelector("input[type='submit']")).click();
+
+            driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of is 1!')]]"));
         }
         catch (NoSuchElementException nseex)
         {
@@ -184,7 +233,7 @@ public class TestFibonacci
             driver.findElement(By.name("value")).sendKeys("5");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
 
-            driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of 5 is 8!')]]"));
+            driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of 5 is 5!')]]"));
         }
         catch (NoSuchElementException nseex)
         {
@@ -207,7 +256,7 @@ public class TestFibonacci
             driver.findElement(By.name("value")).sendKeys("5");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
 
-            driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of 31 is 2178309!')]]"));
+            driver.findElement(By.xpath("//*[text()[contains(.,'Fibonacci of 31 is 1346269!')]]"));
         }
         catch (NoSuchElementException nseex)
         {
