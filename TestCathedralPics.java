@@ -39,10 +39,9 @@ public class TestCathedralPics
     {
         try
         {
+            // Checks to make sure 1 ordered/numbered list is present
             driver.findElement(By.linkText("Cathedral Pics")).click();
-
             List<WebElement> l = driver.findElements(By.tagName("ol"));
-
             assertEquals(1, l.size());
         }
         catch (NoSuchElementException nseex)
@@ -66,7 +65,6 @@ public class TestCathedralPics
 
             // Makes sure that there are 3 images in the ordered list
             List<WebElement> l = ordered_list.findElements(By.tagName("img"));
-
             assertEquals(3, l.size());
         }
         catch (NoSuchElementException nseex)

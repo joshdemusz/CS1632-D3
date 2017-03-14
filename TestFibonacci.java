@@ -75,6 +75,7 @@ public class TestFibonacci
     @Test
     public void testLowerBoundaryInput()
     {
+        // Test entering 0
         try
         {
             driver.findElement(By.linkText("Fibonacci")).click();
@@ -88,6 +89,7 @@ public class TestFibonacci
             fail();
         }
 
+        // Test entering 1
         try
         {
             driver.findElement(By.linkText("Fibonacci")).click();
@@ -109,6 +111,7 @@ public class TestFibonacci
     @Test
     public void testUpperBoundaryInput()
     {
+        // Test entering 100
         try
         {
             driver.findElement(By.linkText("Fibonacci")).click();
@@ -122,6 +125,7 @@ public class TestFibonacci
             fail();
         }
 
+        // Test entering 101
         try
         {
             driver.findElement(By.linkText("Fibonacci")).click();
@@ -145,6 +149,7 @@ public class TestFibonacci
     {
         try
         {
+            // Test entering 1,000,000
             driver.findElement(By.linkText("Fibonacci")).click();
             driver.findElement(By.name("value")).sendKeys("1000000");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -166,6 +171,7 @@ public class TestFibonacci
     {
         try
         {
+            // Test entering nothing
             driver.findElement(By.linkText("Fibonacci")).click();
             driver.findElement(By.name("value")).sendKeys("");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -187,6 +193,7 @@ public class TestFibonacci
     {
         try
         {
+            // Test entering 0.111
             driver.findElement(By.linkText("Fibonacci")).click();
             driver.findElement(By.name("value")).sendKeys("0.111");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -208,6 +215,7 @@ public class TestFibonacci
     {
         try
         {
+            // Testing entering a String
             driver.findElement(By.linkText("Fibonacci")).click();
             driver.findElement(By.name("value")).sendKeys("AH!");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -229,6 +237,7 @@ public class TestFibonacci
     {
         try
         {
+            // Test entering valid input
             driver.findElement(By.linkText("Fibonacci")).click();
             driver.findElement(By.name("value")).sendKeys("5");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -252,6 +261,7 @@ public class TestFibonacci
     {
         try
         {
+            // Test entering a specific valid input that was tested to show a defect.
             driver.findElement(By.linkText("Fibonacci")).click();
             driver.findElement(By.name("value")).sendKeys("5");
             driver.findElement(By.cssSelector("input[type='submit']")).click();

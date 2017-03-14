@@ -49,6 +49,7 @@ public class TestHomepage
     {
         try
         {
+            // Check too make sure all the expected links exist
             driver.findElement(By.linkText("CS1632 D3 Home"));
             driver.findElement(By.linkText("Factorial"));
             driver.findElement(By.linkText("Fibonacci"));

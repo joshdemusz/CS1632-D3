@@ -38,6 +38,7 @@ public class TestFactorial
     {
         try
         {
+            // Test to make sure that data is being inputted
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("0");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -57,6 +58,7 @@ public class TestFactorial
     {
         try
         {
+            // Test entering a negative value
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("-1");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -78,6 +80,7 @@ public class TestFactorial
     {
         try
         {
+            // Test entering 0
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("0");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -91,6 +94,7 @@ public class TestFactorial
 
         try
         {
+            // Test entering 1
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("1");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -110,6 +114,7 @@ public class TestFactorial
     @Test
     public void testUpperBoundaryInput()
     {
+        // Test entering 100
         try
         {
             driver.findElement(By.linkText("Factorial")).click();
@@ -123,6 +128,7 @@ public class TestFactorial
             fail();
         }
 
+        // Test entering 101
         try
         {
             driver.findElement(By.linkText("Factorial")).click();
@@ -146,6 +152,7 @@ public class TestFactorial
     {
         try
         {
+            // Test entering 1,000,000
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("1000000");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -167,6 +174,7 @@ public class TestFactorial
     {
         try
         {
+            // Test entering nothing
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -188,6 +196,7 @@ public class TestFactorial
     {
         try
         {
+            // Test entering a decimal
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("0.111");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -209,6 +218,7 @@ public class TestFactorial
     {
         try
         {
+            // Test entering a String
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("AH!");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
@@ -230,6 +240,7 @@ public class TestFactorial
     {
         try
         {
+            // Test entering a valid integer input
             driver.findElement(By.linkText("Factorial")).click();
             driver.findElement(By.name("value")).sendKeys("5");
             driver.findElement(By.cssSelector("input[type='submit']")).click();
