@@ -30,8 +30,8 @@ public class TestHomepage
     }
 
     /*
-    This test makes sure that the webpage contains the correct title. This was done as a preliminary
-        test - having this title is not one of the requirements.
+    Tests to make sure that the web page actually loads. This test
+        makes sure that the web page that was loaded has the correct title.
      */
     @Test
     public void testShowsCorrectTitle()
